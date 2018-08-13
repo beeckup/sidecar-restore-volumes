@@ -1,0 +1,24 @@
+version: '2'
+services:
+  sidecar-restore-volumes:
+      image: nutellinoit/sidecar-restore-volumes:latest
+      restart: "no"
+      environment:
+        - TAR_TO_RESTORE=${TAR_TO_RESTORE}
+        - SCHEDULE=${SCHEDULE}
+        - S3_BUCKET=${S3_BUCKET}
+        - S3_KEY=${S3_KEY}
+        - S3_SECRET=${S3_SECRET}
+        - S3_HOST=${S3_HOST}
+        - S3_PROTOCOL=${S3_PROTOCOL}
+      volumes_from:
+        - wordpress:rw  # example mounted volumes for backups
+###################
+##### example wordpress install
+  wordpress:
+      image: wordpress
+      restart: always
+      ports:
+        - "80:80"
+      volumes:
+        - ./wp-app:/var/www/html

@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Job
+metadata:
+  name: sidecar-restore-volumes
+spec:
+  template:
+    spec:
+      containers:
+      - env:
+        - name: S3_BUCKET
+          value: bucketname
+        - name: S3_HOST
+          value: s3.host.tld
+        - name: S3_KEY
+          value: 3h3213h12uo3hi12
+        - name: S3_PROTOCOL
+          value: https
+        - name: S3_SECRET
+          value: kl325k34hj1jkh4lkjh3lk2hjjk4
+        - name: SCHEDULE
+        - name: TAR_TO_RESTORE
+          value: dumpdata/1533769200_08_08_2018_var_www_html_bck_20180808.tar.gz
+        image: nutellinoit/sidecar-restore-volumes:latest
+        name: sidecar-restore-volumes
+        volumeMounts:
+        - mountPath: /var/www/html
+          name: sidecar-restore-volumes-claim0
+      restartPolicy: Never
+      volumes:
+      - name: sidecar-restore-volumes-claim0
+        persistentVolumeClaim:
+          claimName: sidecar-restore-volumes-claim0
+  backoffLimit: 1
