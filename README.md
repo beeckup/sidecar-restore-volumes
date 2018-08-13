@@ -8,16 +8,11 @@ Copy `env.sample` as `.env`
 
 Run ONE TIME ONLY. Restores tar.gz configured on `.env` file replacing contents of existing folders
 
-ENVIROMENT VARIABLE   | DESCRIPTION | Values
-----------   | ---------- | --------------  
-FOLDERS | folders comma separated | example `/var/www,/var/etc`
-SCHEDULE | see below | 
-
-## Minio/S3 config
+## S3 config
 
 ENVIROMENT VARIABLE   | DESCRIPTION | Values
 ----------   | ---------- | --------------  
-TAR_TO_RESTORE | File path on bucket | string
+**TAR_TO_RESTORE** | File path on bucket | string
 S3_BUCKET | Bucket name | string
 S3_HOST | host:port | `host:port`
 S3_PROTOCOL | protocol type | `http` or `https`
