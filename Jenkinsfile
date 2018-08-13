@@ -11,7 +11,7 @@ node {
     }
 
     stage('Build image') {
-        app = docker.build("nutellinoit/sidecar-restore-volumes","--pull build_container/")
+        app = docker.build("nutellinoit/sidecar-restore-volumes","--pull --no-cache build_container/")
     }
 
 
