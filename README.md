@@ -1,4 +1,4 @@
-# Sidecar Backup Volumes
+# Sidecar Restore Volumes
 
 Example deploy on  ```deploy_sidecar_example/docker-compose.yml```
 
