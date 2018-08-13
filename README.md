@@ -6,7 +6,7 @@ For kubernetes job see `kubernetes/jobs.yml`
 
 Copy `env.sample` as `.env`
 
-Run ONE TIME ONLY. Restores tar.gz given in .env on existent folder replacing contents
+Run ONE TIME ONLY. Restores tar.gz configured on `.env` file replacing contents of existing folders
 
 ENVIROMENT VARIABLE   | DESCRIPTION | Values
 ----------   | ---------- | --------------  
