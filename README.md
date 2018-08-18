@@ -1,4 +1,4 @@
-# Sidecar Backup Volumes
+# Sidecar Restore Volumes
 
 Example deploy on  ```deploy_sidecar_example/docker-compose.yml```
 
@@ -6,18 +6,13 @@ For kubernetes job see `kubernetes/jobs.yml`
 
 Copy `env.sample` as `.env`
 
-Run ONE TIME ONLY. Restores tar.gz given in .env on existent folder replacing contents
+Run ONE TIME ONLY. Restores tar.gz configured on `.env` file replacing contents of existing folders
+
+## S3 config
 
 ENVIROMENT VARIABLE   | DESCRIPTION | Values
 ----------   | ---------- | --------------  
-FOLDERS | folders comma separated | example `/var/www,/var/etc`
-SCHEDULE | see below | 
-
-## Minio/S3 config
-
-ENVIROMENT VARIABLE   | DESCRIPTION | Values
-----------   | ---------- | --------------  
-TAR_TO_RESTORE | File path on bucket | string
+**TAR_TO_RESTORE** | File path on bucket | string
 S3_BUCKET | Bucket name | string
 S3_HOST | host:port | `host:port`
 S3_PROTOCOL | protocol type | `http` or `https`
