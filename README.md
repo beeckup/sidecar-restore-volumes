@@ -64,7 +64,6 @@ services:
       restart: "no"
       environment:
         - TAR_TO_RESTORE=${TAR_TO_RESTORE} ## or - TAR_PATH=${TAR_PATH}
-        - SCHEDULE=${SCHEDULE}
         - S3_BUCKET=${S3_BUCKET}
         - S3_KEY=${S3_KEY}
         - S3_SECRET=${S3_SECRET}
