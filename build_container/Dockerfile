@@ -4,5 +4,8 @@ WORKDIR /go/src/app
 RUN apk update \
     && apk add --no-cache openssl curl \
     && apk add bash
+RUN apk add python
+RUN apk add py-pip
+RUN pip install awscli
 COPY . .
 CMD ["./restore.sh"]

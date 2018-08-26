@@ -1,6 +1,21 @@
 #!/bin/sh
 
-_file="$TAR_TO_RESTORE"
+
+if [ "$TAR_PATH" = "" ]; then
+
+
+    _file="$TAR_TO_RESTORE"
+
+else
+    echo "Getting latest filename"
+    aws configure set aws_access_key_id $S3_KEY
+    aws configure set aws_secret_access_key $S3_SECRET
+    filename=`aws  --endpoint-url $S3_PROTOCOL://$S3_HOST/ s3 ls s3://$S3_BUCKET/$TAR_PATH/ | sort | tail -n 1 | awk '{print $4}'`
+    echo $filename
+    _file="$TAR_PATH/$filename"
+fi
+
+
 
 bucket="$S3_BUCKET"
 

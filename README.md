@@ -12,14 +12,15 @@ Run ONE TIME ONLY. Restores tar.gz configured on `.env` file replacing contents 
 
 ENVIROMENT VARIABLE   | DESCRIPTION | Values
 ----------   | ---------- | --------------  
-**TAR_TO_RESTORE** | File path on bucket | string
+**TAR_TO_RESTORE** | full file path on bucket | string
+**TAR_PATH** | directory on bucket (where latest file will be considered) | string
 S3_BUCKET | Bucket name | string
 S3_HOST | host:port | `host:port`
 S3_PROTOCOL | protocol type | `http` or `https`
 S3_KEY | key | string
 S3_SECRET | secret | string
 
-# Usage
+# Usage with named file
 
 Create `.env` file:
 
@@ -34,7 +35,23 @@ S3_BUCKET=cicciopollo
 ### minio or s3 credentials
 S3_KEY=85A8U57ZITLSLFBYKNCG
 S3_SECRET=14MAuAetrv7y3E6zAuUOimXy5KYRqrZKw3cWuEe/
+```
 
+# Usage with latest file from directory
+
+Create `.env` file:
+
+```bash
+TAR_PATH="dumpdata" #no trailing slash
+### S3 or minio host
+S3_HOST=minio:9000
+### Protocol
+S3_PROTOCOL=http
+### Your bucket name
+S3_BUCKET=cicciopollo
+### minio or s3 credentials
+S3_KEY=85A8U57ZITLSLFBYKNCG
+S3_SECRET=14MAuAetrv7y3E6zAuUOimXy5KYRqrZKw3cWuEe/
 ```
 
 Create `docker-compose.yml` file:
@@ -46,7 +63,7 @@ services:
       image: nutellinoit/sidecar-restore-volumes:latest
       restart: "no"
       environment:
-        - TAR_TO_RESTORE=${TAR_TO_RESTORE}
+        - TAR_TO_RESTORE=${TAR_TO_RESTORE} ## or - TAR_PATH=${TAR_PATH}
         - SCHEDULE=${SCHEDULE}
         - S3_BUCKET=${S3_BUCKET}
         - S3_KEY=${S3_KEY}
