@@ -19,6 +19,8 @@ S3_HOST | host:port | `host:port`
 S3_PROTOCOL | protocol type | `http` or `https`
 S3_KEY | key | string
 S3_SECRET | secret | string
+TRANSFORM_FROM | rsync from directory after extraction | string
+TRANSFORM_TO | rsync to directory after extraction (deletes content) | string
 
 # Usage with named file
 

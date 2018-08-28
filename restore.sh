@@ -40,5 +40,17 @@ curl -v -H "Host: $host" \
 -H "Authorization: AWS ${s3_key}:${signature}" \
 $link${resource} -o out.tar.gz
 echo "SUBSTITUTING FILES!!!"
-tar -xvf  out.tar.gz -C /
+
+if [ "$TRANSFORM_FROM" = "" ]; then
+
+    tar -xvf  out.tar.gz -C /
+
+else
+
+    tar -xvf  out.tar.gz -C /
+    rsync -avh $TRANSFORM_FROM $TRANSFORM_TO --delete
+    rm -rf $TRANSFORM_FROM
+
+fi
+
 rm out.tar.gz
