@@ -11,8 +11,8 @@ services:
         - S3_SECRET=${S3_SECRET}
         - S3_HOST=${S3_HOST}
         - S3_PROTOCOL=${S3_PROTOCOL}
-        - TRANSFORM_FROM=${TRANSFORM_FROM} # optional, moving files post extraction
-        - TRANSFORM_TO=${TRANSFORM_TO} # optional, moving files post extraction
+        # - TRANSFORM_FROM=${TRANSFORM_FROM} # optional, moving files post extraction
+        # - TRANSFORM_TO=${TRANSFORM_TO} # optional, moving files post extraction
       volumes_from:
         - wordpress:rw  # example mounted volumes for backups
 ###################
