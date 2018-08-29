@@ -22,6 +22,17 @@ S3_SECRET | secret | string
 TRANSFORM_FROM | rsync from directory after extraction | string
 TRANSFORM_TO | rsync to directory after extraction (deletes content) | string
 
+## Optional Variables to change wp-config.php wordpress
+
+ENVIROMENT VARIABLE   | DESCRIPTION | Values
+----------   | ---------- | --------------  
+NEW_WORDPRESS_HOST | Db Host replaced on wp-config.php | string
+NEW_WORDPRESS_DBNAME | Db name replaced on wp-config.php | string
+NEW_WORDPRESS_DBUSER | Db user replaced on wp-config.php | string
+NEW_WORDPRESS_DBPASS | Db password replaced on wp-config.php | string
+**NEW_WORDPRESS_WPCONFIG_PATH** | Path of wp-config.php file, needed to enable replace function | string
+
+
 # Usage with named file
 
 Create `.env` file:
