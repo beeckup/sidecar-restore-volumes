@@ -1,7 +1,7 @@
 version: '2'
 services:
   sidecar-restore-volumes:
-      image: nutellinoit/sidecar-restore-volumes:dev
+      image: nutellinoit/sidecar-restore-volumes:latest
       restart: "no"
       environment:
         # - TAR_TO_RESTORE=${TAR_TO_RESTORE}
