@@ -54,3 +54,14 @@ else
 fi
 
 rm out.tar.gz
+
+
+if [  -n "$NEW_WORDPRESS_WPCONFIG_PATH" ]; then
+    echo "REPLACING WORDPRESS CONFIG"
+    sed -i "s;\(define([[:space:]]*'DB_HOST',[[:space:]]*\)\(.*\)\()\;\);\1'$NEW_WORDPRESS_HOST'\3;g" $NEW_WORDPRESS_WPCONFIG_PATH
+    sed -i "s;\(define([[:space:]]*'DB_NAME',[[:space:]]*\)\(.*\)\()\;\);\1'$NEW_WORDPRESS_DBNAME'\3;g" $NEW_WORDPRESS_WPCONFIG_PATH
+    sed -i "s;\(define([[:space:]]*'DB_USER',[[:space:]]*\)\(.*\)\()\;\);\1'$NEW_WORDPRESS_DBUSER'\3;g" $NEW_WORDPRESS_WPCONFIG_PATH
+    sed -i "s;\(define([[:space:]]*'DB_PASSWORD',[[:space:]]*\)\(.*\)\()\;\);\1'$NEW_WORDPRESS_DBPASS'\3;g" $NEW_WORDPRESS_WPCONFIG_PATH
+    echo "DONE REPLACING WORDPRESS CONFIG"
+fi
+

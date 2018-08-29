@@ -1,7 +1,7 @@
 version: '2'
 services:
   sidecar-restore-volumes:
-      image: nutellinoit/sidecar-restore-volumes:latest
+      image: nutellinoit/sidecar-restore-volumes:dev
       restart: "no"
       environment:
         # - TAR_TO_RESTORE=${TAR_TO_RESTORE}
@@ -11,8 +11,13 @@ services:
         - S3_SECRET=${S3_SECRET}
         - S3_HOST=${S3_HOST}
         - S3_PROTOCOL=${S3_PROTOCOL}
-        # - TRANSFORM_FROM=${TRANSFORM_FROM} # optional, moving files post extraction
-        # - TRANSFORM_TO=${TRANSFORM_TO} # optional, moving files post extraction
+        #- TRANSFORM_FROM=${TRANSFORM_FROM} # optional, moving files post extraction
+        #- TRANSFORM_TO=${TRANSFORM_TO} # optional, moving files post extraction
+        #- NEW_WORDPRESS_HOST=${NEW_WORDPRESS_HOST}
+        #- NEW_WORDPRESS_DBNAME=${NEW_WORDPRESS_DBNAME}
+        #- NEW_WORDPRESS_DBUSER=${NEW_WORDPRESS_DBUSER}
+        #- NEW_WORDPRESS_DBPASS=${NEW_WORDPRESS_DBPASS}
+        #- NEW_WORDPRESS_WPCONFIG_PATH=${NEW_WORDPRESS_WPCONFIG_PATH}
       volumes_from:
         - wordpress:rw  # example mounted volumes for backups
 ###################
