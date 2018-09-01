@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -e
 
 if [ "$TAR_PATH" = "" ]; then
 
