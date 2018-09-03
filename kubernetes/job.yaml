@@ -20,7 +20,7 @@ spec:
         - name: SCHEDULE
         - name: TAR_TO_RESTORE
           value: dumpdata/1533769200_08_08_2018_var_www_html_bck_20180808.tar.gz
-        image: nutellinoit/sidecar-restore-volumes:latest
+        image: beeckup/sidecar-restore-volumes:latest
         name: sidecar-restore-volumes
         volumeMounts:
         - mountPath: /var/www/html
