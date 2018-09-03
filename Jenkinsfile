@@ -21,4 +21,15 @@ node {
             app.push("${env.BUILD_NUMBER}")
         }
     }
+    stage('Build image Beekup') {
+        app = docker.build("beeckup/sidecar-restore-volumes","--pull --no-cache build_container/")
+    }
+
+
+    stage('Push image Beeckup') {
+        docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            app.push("latest")
+            app.push("${env.BUILD_NUMBER}")
+        }
+    }
 }
