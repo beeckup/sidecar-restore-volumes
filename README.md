@@ -73,7 +73,7 @@ Create `docker-compose.yml` file:
 version: '2'
 services:
   sidecar-restore-volumes:
-      image: nutellinoit/sidecar-restore-volumes:latest
+      image: beeckup/sidecar-restore-volumes:latest
       restart: "no"
       environment:
         - TAR_TO_RESTORE=${TAR_TO_RESTORE} ## or - TAR_PATH=${TAR_PATH}
