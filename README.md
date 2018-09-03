@@ -57,7 +57,8 @@ S3_SECRET=14MAuAetrv7y3E6zAuUOimXy5KYRqrZKw3cWuEe/
 Create `.env` file:
 
 ```bash
-TAR_PATH="dumpdata" #no trailing slash
+#no trailing slash
+TAR_PATH="dumpdata"
 ### S3 or minio host
 S3_HOST=minio:9000
 ### Protocol
