@@ -40,7 +40,7 @@ NEW_WORDPRESS_DBPASS | Db password replaced on wp-config.php | string
 Create `.env` file:
 
 ```bash
-TAR_TO_RESTORE="dumpdata/XXXXX.tar.gz"
+TAR_TO_RESTORE=dumpdata/XXXXX.tar.gz
 ### S3 or minio host
 S3_HOST=minio:9000
 ### Protocol
@@ -58,7 +58,7 @@ Create `.env` file:
 
 ```bash
 #no trailing slash
-TAR_PATH="dumpdata"
+TAR_PATH=dumpdata
 ### S3 or minio host
 S3_HOST=minio:9000
 ### Protocol
